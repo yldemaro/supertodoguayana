@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-button routerLink="/edit-address">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Método de Pago</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light" class="ion-padding">
+  <ion-card>
+    <img src="https://askdemo-c24d7.web.app/assets/payment_methods.png" alt="">
+  </ion-card>
+  <ion-card>
+    <ion-item>
+      <ion-label position="stacked">
+        Numero de Tarjeta <span style="color: red;">*</span>
+      </ion-label>
+      <ion-input type="number" placeholder="inserte numero de tarjeta"></ion-input>
+    </ion-item>
+  </ion-card>
+  <ion-card>
+    <ion-item>
+      <ion-label position="stacked">
+        mm/yy (Valid thru) <span style="color: red;">*</span>
+      </ion-label>
+      <ion-input type="number" placeholder="inserte mmy/yy"></ion-input>
+    </ion-item>
+  </ion-card>
+  <ion-card>
+    <ion-item>
+      <ion-label position="stacked">
+        CVV <span style="color: red;">*</span>
+      </ion-label>
+      <ion-input type="number" placeholder="inserte cvv"></ion-input>
+    </ion-item>
+  </ion-card>
+  <ion-card>
+    <ion-item>
+      <ion-label position="stacked">
+        NickName (Optional)
+      </ion-label>
+      <ion-input type="text" placeholder="inserte nickname"></ion-input>
+    </ion-item>
+  </ion-card>
+  <ion-card class="ion-padding">
+    <ion-button color="warning" expand="block" routerLink="/complete">Guardar</ion-button>
+  </ion-card>
+</ion-content>

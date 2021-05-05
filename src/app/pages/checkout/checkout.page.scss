@@ -1,0 +1,33 @@
+ion-content{
+    ion-card:nth-child(1){
+        margin-bottom: 1px;
+    }
+    ion-card:nth-child(2){
+        margin-top: 0px;
+        margin-bottom: 1px;
+    }
+    ion-card:nth-child(3){
+        margin-top: 0px;
+        margin-bottom: 1px;
+    }
+}
+
+ion-footer{
+    background-color: var(--ion-color-light);
+
+    ion-icon{
+        font-size:1.5rem;
+    }
+}
+
+button{
+    width: 100%;
+    padding:10px;
+    font-size:17px;
+    background-color: transparent;
+    color:gray;
+}
+button:focus{
+    // background-color: var(--ion-color-medium);
+    color:var(--ion-color-tertiary);
+}

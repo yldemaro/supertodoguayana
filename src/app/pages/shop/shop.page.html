@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-menu-button style="color:white;"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Tienda</ion-title>
+    <ion-buttons slot="end">
+      <ion-icon slot="end" name="cart"></ion-icon>
+      <ion-badge color="danger">11</ion-badge>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+  <ion-searchbar placeholder="Buscar Productos" [(ngModel)]="filterpost" name="filterpost"></ion-searchbar>
+  <div class="ion-text-center ion-margin-vertical">
+    {{fecha}}
+  </div>
+  <div class="ion-margin-vertical">
+    <img width="" src="assets/img/slider1.jpg" alt="">
+  </div>
+
+  <div>
+    <ion-grid class="ion-no-padding">
+      <ion-row>
+        <ion-col size="6" *ngFor="let item of prod | filter:filterpost">
+          <ion-card>
+            <p class="text-oferta" *ngIf="item.value.ofert">20% off</p>
+            <img width="100%" height="160px" src={{item.value.img}} alt="">
+            <h3 style="font-size: 16px;"> {{item.value.nombre}}</h3>
+            <ion-row>
+              <ion-col size="12" class="ion-text-center">
+                <h2>
+                  $<strong>{{item.value.price}}</strong> <small *ngIf="item.value.ofert"
+                    [ngClass]="{'oferta': item.value.ofert === true, 'no-oferta' : item.value.ofert === false }">
+                    ${{item.value.price - (item.value.price * 0.2) |
+                    number}}</small></h2>
+              </ion-col>
+            </ion-row>
+            <ion-row class="ion-text-center">
+              <ion-col size="6">
+                {{item.value.presentacion}}
+              </ion-col>
+              <ion-col size="6">
+                <button class="menos" (click)="boton(item.id, 'resta')">-</button> <span
+                  style="margin-left: 2px; margin-right:2px;"><strong>{{number}}</strong></span> <button class="mas"
+                  (click)="boton(item.id, 'suma')">+</button>
+              </ion-col>
+            </ion-row>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

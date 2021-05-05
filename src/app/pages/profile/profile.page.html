@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-menu-button style="color:white;"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Mi Perfil</ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon name="list" style="font-size:2rem;"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+  <ion-card>
+    <ion-grid class="ion-no-padding">
+      <ion-row class="ion-text-center">
+        <ion-col size="12" class="ion-no-margin ion-no-padding">
+          <img src="assets/img/profile.png" alt="">
+          <h3 style="color:black; font-weight:bold;">Susan Verner</h3>
+          <p>iamosahan@gmail.com</p>
+        </ion-col>
+        <ion-col size="6">
+          <button class="ion-padding">
+            <ion-icon name="navigate-circle"></ion-icon><br><br>
+            Editar Dirección
+          </button>
+        </ion-col>
+        <ion-col size="6">
+          <button class="ion-padding">
+            <ion-icon name="person-circle"></ion-icon><br><br>
+            Editar Perfil
+          </button>
+        </ion-col>
+        <ion-col size="12">
+          <ion-row>
+            <ion-col size="8" style="font-weight: bold;" class="ion-text-left ion-padding">
+              <ion-icon name="card"></ion-icon>
+              Mi balance
+            </ion-col>
+            <ion-col size="4" style="color:rgb(10, 10, 90); font-weight:bold;" class="ion-text-right ion-padding">
+              $4,543
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+
+  <ion-card>
+    <ion-item color="success">
+      <ion-icon name="person-circle"></ion-icon> Mi perfil
+    </ion-item>
+    <ion-item *ngFor="let item of rout" (click)="Router(item.router)">
+      <ion-label>
+        <ion-icon name={{item.icon}}></ion-icon>{{item.name}}
+      </ion-label>
+    </ion-item>
+  </ion-card>
+</ion-content>
+
+<ion-footer class="ion-padding">
+  <ion-button expand="block" color="warning" routerLink="/checkout">LOGOUT</ion-button>
+</ion-footer>

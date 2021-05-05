@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-button routerLink="/address">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Dirección de Delivery</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light" class="ion-padding">
+  <ion-list>
+    <ion-item>
+      <ion-label position="stacked">Nombre <span style="color:red;">*</span></ion-label>
+      <ion-input type="text" placeholder="Inserte el nombre"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Casa/Apart/Torre <span style="color:red;">*</span></ion-label>
+      <ion-input type="text" placeholder="Inserte el Casa/Apart/Torre"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Calle, Vereda <span style="color:red;">*</span></ion-label>
+      <ion-input type="text" placeholder="Inserte la Calle o Vereda"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Ciudad <span style="color:red;">*</span></ion-label>
+      <ion-input type="text" placeholder="Inserte la Ciudad"></ion-input>
+    </ion-item>
+
+    <h3>Nickname of your address</h3>
+    <ion-item *ngFor="let entry of form">
+      <ion-label>{{entry.val}}</ion-label>
+      <ion-checkbox color="dark" slot="end" [(ngModel)]="entry.isChecked"></ion-checkbox>
+    </ion-item>
+
+    <ion-button color="success" expand="block" routerLink="/payment">Enviar</ion-button>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,84 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-menu-button style="color:white;"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>{{producto.nombre}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-icon slot="end" name="cart"></ion-icon>
+      <ion-badge color="danger">11</ion-badge>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+
+  <ion-slides pager="true" [options]="slideOpts">
+    <ion-slide *ngFor="let item of producto.pict">
+      <img width="100%" height="250px" src={{item}} alt="">
+    </ion-slide>
+  </ion-slides>
+  <ion-card class="ion-padding">
+    <h3 style="font-weight:bold;">{{producto.nombre}}</h3>
+    <span class="margin-horizontal">
+      <ion-icon name="checkmark-circle" color="success" *ngIf="producto.cant >= 1"></ion-icon>
+      <ion-icon name="close-circle" color="danger" *ngIf="producto.cant < 1"></ion-icon>
+      Disponible en {{producto.presentacion}}
+    </span>
+    <h2>
+      $<strong>{{producto.price}}</strong> <small *ngIf="producto.ofert"
+        [ngClass]="{'oferta': producto.ofert === true, 'no-oferta' : producto.ofert === false }">
+        ${{producto.price - (producto.price * 0.2) |
+        number}}</small>
+    </h2>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="2" style="color:var(--ion-color-success);">
+          <ion-icon name="star" color="success"></ion-icon> 4.4
+        </ion-col>
+        <ion-col size="10" class="ion-text-right">
+          <button class="menos" (click)="boton(producto.id, 'resta')">-</button> <span
+            style="margin-left: 2px; margin-right:2px;"><strong class="margin-horizontal">{{number}}</strong></span>
+          <button class="mas" (click)="boton(producto.id, 'suma')">+</button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+
+  <ion-card>
+    <ion-grid>
+      <ion-row class="ion-text-center">
+        <ion-col class="descripcion" size="6">Descripción</ion-col>
+        <ion-col size="6" style="color: black;">Disponible: <small *ngIf="producto.cant>=1">en stock</small></ion-col>
+        <ion-col size="12" class="ion-text-justify">
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero fugiat optio in nam ut. Accusamus molestias
+            voluptas minus quam optio veritatis molestiae? Magnam libero eum ipsa est sint? Pariatur, voluptas!</p>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam repellat assumenda ea aliquid voluptates
+            vitae repellendus, explicabo quidem error fuga facere nesciunt corrupti, ipsum dolores delectus rem et
+            excepturi deserunt.
+            Molestias nesciunt dolore cumque molestiae. Dolor repellat sunt praesentium nisi voluptates, aperiam, culpa
+            eum ducimus animi sed iure. Laudantium voluptates dolorem dolorum debitis hic repellat consequatur quas esse
+            praesentium animi.</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+
+</ion-content>
+
+<ion-footer color="success">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6">
+        <ion-button color="dark" routerLink="/checkout">
+          <ion-icon name="cart"></ion-icon>
+          Add To Cart
+        </ion-button>
+      </ion-col>
+      <ion-col size="6" class="ion-text-right">
+        <ion-button routerLink="/checkout" color="dark">$ {{producto.price}} <ion-icon class="ion-margin-horizontal" name="arrow-forward"></ion-icon></ion-button>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+</ion-footer>

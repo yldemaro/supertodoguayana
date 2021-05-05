@@ -1,0 +1,22 @@
+ion-list {
+  border-radius: 15px;
+  width: 90%;
+  margin-top: -65px;
+  margin-left: auto;
+  margin-right: auto;
+
+  ion-item ion-label {
+    font-size: 13px;
+    color: rgb(196, 192, 192);
+  }
+}
+
+h3,
+h1, ion-icon {
+  color: white;
+}
+
+.box {
+  background-color: #003049;
+  height: 350px;
+}

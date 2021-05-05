@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-menu-button style="color:white;"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Billetera</ion-title>
+    <ion-buttons slot="start">
+      <ion-button routerLink="/perfil">
+        <ion-icon name="person"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light" class="ion-padding">
+
+  <div class="box ion-text-center ion-padding">
+    <ion-icon name="card" style="font-size: 6rem;"></ion-icon>
+    <h3>Balance Total</h3>
+    <h1>$24,000</h1>
+    <ion-button color="warning">Agregar Dinero</ion-button>
+  </div>
+
+  <ion-list class="ion-margin-vertical">
+    <ion-item>
+      <ion-label slot="start">Pago a Walmart</ion-label>
+      <span slot="end" style="color:red;">-$45</span>
+    </ion-item>
+    <ion-item>
+      <ion-label slot="start">Pago a Santo Tome</ion-label>
+      <span slot="end" style="color:red;">-$50</span>
+    </ion-item>
+    <ion-item>
+      <ion-label slot="start">Pago a Santa Maria</ion-label>
+      <span slot="end" style="color:red;">-$20</span>
+    </ion-item>
+    <ion-item>
+      <ion-label slot="start">Pago a Feria</ion-label>
+      <span slot="end" style="color:red;">-$40</span>
+    </ion-item>
+  </ion-list>
+
+
+</ion-content>

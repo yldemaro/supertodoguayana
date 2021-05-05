@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-menu-button style="color:white;"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Lista de Orden</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light" *ngIf="prod">
+
+  <ion-searchbar class="ion-padding" placeholder="Buscar Productos" [(ngModel)]="filterpost" name="filterpost">
+  </ion-searchbar>
+  <div class="ion-text-center ion-margin-vertical">
+    {{fecha}}
+  </div>
+
+
+  <ion-card *ngFor="let item of prod | filter:filterpost  | slice:0:4">
+    <ion-grid class="ion-no-padding">
+      <ion-row>
+        <ion-col size="4" class="ion-padding">
+          <img src={{item.value.img}} alt="">
+        </ion-col>
+        <ion-col size="8" class="ion-padding">
+          <h4 style="font-weight:bold; margin-top:0px;">{{item.value.nombre}}</h4>
+          <h5 style="margin-top: 0px;">${{item.value.price}}</h5>
+          <h5 style="font-size: 13px;">
+            <ion-icon name="cart"></ion-icon> Order ID : {{item.value.uuid}}
+          </h5>
+        </ion-col>
+        <ion-col size="12" class="ion-padding"
+          style="border-top: 1px solid rgb(204, 202, 202); border-bottom: 1px solid rgb(204, 202, 202);"
+          *ngIf="!item.value.ofert">
+          <span>Orden Cancelada</span>
+          <ion-icon color="danger" name="close-circle-outline" style="float: right;"></ion-icon>
+        </ion-col>
+        <ion-col size="12" class="ion-padding"
+          style="border-top: 1px solid rgb(204, 202, 202); border-bottom: 1px solid rgb(204, 202, 202);"
+          *ngIf="item.value.ofert">
+          <span>Orden Exitosa</span>
+          <ion-icon color="success" name="close-circle-outline" style="float: right;"></ion-icon>
+        </ion-col>
+        <ion-col size="12" class="ion-padding">
+          <ion-row>
+            <ion-col size="8" class="ion-margin-top">Importe a Pagar</ion-col>
+            <ion-col size="4" class="ion-text-right ion-margin-top">{{item.value.price}} </ion-col>
+            <ion-col size="8" class="ion-margin-top" *ngIf="!item.value.ofert">Cargo por Delivery</ion-col>
+            <ion-col size="4" class="ion-text-right ion-margin-top" *ngIf="!item.value.ofert">{{item.value.price * 0.2 |
+              number}}
+            </ion-col>
+            <ion-col size="8" class="ion-margin-top">Total a pagar</ion-col>
+            <ion-col size="4" class="ion-text-right ion-margin-top" *ngIf="!item.value.ofert">{{item.value.price +
+              (item.value.price * 0.2) | number}}
+            </ion-col>
+            <ion-col size="4" class="ion-text-right ion-margin-top" *ngIf="item.value.ofert">{{item.value.price |
+              number}}
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <div class="ion-padding">
+      <ion-button color="warning" expand="block" routerLink="/product-single">Ver Detalles</ion-button>
+    </div>
+
+  </ion-card>
+</ion-content>

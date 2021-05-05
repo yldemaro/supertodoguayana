@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-menu-button style="color:white;"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Mi Dirección</ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/edit-address">
+        <ion-icon name="add" style="font-size: 1.5rem;"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+  <ion-card *ngFor="let item of direccion" class="ion-padding">
+    <div style="display: flex;">
+      <ion-icon name={{item.icon}} style="font-size: 2.4rem;"></ion-icon>
+      <div>
+        <h1 class="ion-margin-horizontal" style="margin-top: 2px; font-weight:bold;">{{item.name}}</h1>
+        <h4>{{item.desc}}</h4>
+        <p>
+          <a routerLink="/edit-address" style="color:var(--ion-color-success);">
+            <ion-icon name="create"></ion-icon>EDIT
+          </a>
+          <a class="ion-margin-horizontal" style="color:var(--ion-color-danger);">
+            <ion-icon name="trash"></ion-icon>DELETE
+          </a>
+        </p>
+      </div>
+
+    </div>
+  </ion-card>
+</ion-content>
